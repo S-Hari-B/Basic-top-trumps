@@ -4,7 +4,7 @@ from computer import Computer
 class Battle:
   def battle(self):
     computer = Computer(30)
-    player = Player(30)
+    player = Player(5)
 
     while player.health > 0 and computer.health > 0:
       print(f"Player health: {player.health}")
@@ -30,7 +30,13 @@ class Battle:
         player.take_damage(damage_diff)
       else:
         print('Draw!')
-      #print(f"Player health: {player.health}")
-      #print(f"Computer health: {computer.health}\n")
+      print("Game over!\n")
+    choice = input("Do you want to play again? (y/n) ")
+
+    if choice.lower() == "y":
+      print('\n')
+      self.battle()  
+    else:
+      exit(0)  
 
 

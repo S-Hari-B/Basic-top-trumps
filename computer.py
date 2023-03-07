@@ -9,10 +9,9 @@ class Computer:
   def take_damage(self, damage):
     self.health -= damage
     if self.health <= 0:
-      print('Computer has died!')
+      print('\nComputer has died!')
       print('Player has won!')
-      exit()
-  
+
   def draw_cards(self):
     self.draw = Cards()
     self.draw.draw_cards()

@@ -8,9 +8,8 @@ class Player:
   def take_damage(self, damage):
     self.health -= damage
     if self.health <= 0:
-      print('You have died!')
+      print('\nYou have died!')
       print('Computer has won!')
-      exit()
   
   def draw_cards(self):
     self.draw = Cards()
