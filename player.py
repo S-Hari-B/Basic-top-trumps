@@ -18,18 +18,19 @@ class Player:
     self.draw.card_details()
 
   def select_card(self):
-    choices = []
-    for card in self.draw.draw_cards:
-        choices.append(card[0])
+    choices = self.draw.draw_cards
     check = True
     while check:
-        choice_str = input("\nSelect a card to play from the following choices: ")
-        choice = choice_str
-        if choice in choices:
-            self.draw.select_card(choices.index(choice))
-            print(f'\nYou have chosen {choice_str}')
-            selected_card = self.draw.draw_cards[choices.index(choice)]
-            check = False
+      choice_str = input(f"\nSelect a card to play (enter a number between 1 and {len(choices)}): ")
+      try:
+        choice = int(choice_str) - 1  
+        if 0 <= choice < len(choices):
+          self.draw.select_card(choice)
+          selected_card = choices[choice]
+          print(f'\nYou have chosen {selected_card[0]}')
+          check = False
         else:
-            print('\nPlease enter a valid card')
+          print('\nPlease enter a valid number')
+      except ValueError:
+        print('\nPlease enter a valid number')
     return selected_card
