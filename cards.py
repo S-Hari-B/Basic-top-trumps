@@ -23,3 +23,12 @@ class Cards:
 
   def select_card(self, choice):
     return self.cards[int(choice) - 1]
+
+  def view_full_card_list(self):
+    print("Full Card List:")
+    with open('cards.csv') as card_list:
+      option = 1
+      for card in csv.reader(card_list, delimiter=':'):
+        print(f"{option}. {card[0]}, Damage: {card[1]}")
+        option += 1
+      

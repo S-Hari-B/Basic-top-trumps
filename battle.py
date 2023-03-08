@@ -3,9 +3,8 @@ from computer import Computer
 
 class Battle:
   def battle(self):
-    computer = Computer(5)
+    computer = Computer(1)
     player = Player(30)
-
     while player.health > 0 and computer.health > 0:
       print('\n---------------------------')
       print(f"Player health: {player.health}")
@@ -27,13 +26,14 @@ class Battle:
       computer_damage = int(computer_card[1])
       damage_diff = abs(player_damage - computer_damage)
       if int(player_damage) > int(computer_damage):
-        print('Player wins!\n')
+        print('Player wins round!\n')
         computer.take_damage(damage_diff)
       elif computer_damage > player_damage:
-        print('Computer wins!\n')
+        print('Computer wins round!\n')
         player.take_damage(damage_diff)
       else:
         print('Draw!')
+    print('\n---------------------------')
     choice = input("Do you want to play again? (y/n) ")
 
     if choice.lower() == "y":

@@ -1,5 +1,5 @@
-from battle import Battle
+from menu import Menu
 
-battle = Battle()
-battle.battle()
+menu = Menu()
+menu.menu_options()
 
