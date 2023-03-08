@@ -17,6 +17,6 @@ class Computer:
     self.draw.draw_cards()
 
   def select_card(self):
-    selection = random.choice(self.draw.draw_cards)
+    selection = random.choice(self.draw.draw_cards())
     print('Computer has chosen ' + selection[0])
     return selection
