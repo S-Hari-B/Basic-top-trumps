@@ -1,11 +1,16 @@
 from cards import Cards
 import random
 
+
 class Computer:
 
-  def __init__(self, health):
+  def __init__(self, health, gold):
     self.health = health
-    
+    self.gold = gold
+
+  def drop_gold(self):
+    return self.gold
+
   def take_damage(self, damage):
     self.health -= damage
     if self.health <= 0:

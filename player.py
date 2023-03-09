@@ -3,9 +3,13 @@ from cards import Cards
 
 class Player:
 
-  def __init__(self, health):
+  def __init__(self, health, gold):
     self.health = health
     self.cards = Cards()
+    self.gold = gold
+
+  def add_gold(self, amount):
+    self.gold += amount
 
   def take_damage(self, damage):
     self.health -= damage

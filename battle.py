@@ -1,18 +1,25 @@
 from player import Player
 from computer import Computer
+import random
 
 class Battle:
+  def __init__(self):
+    self.player = Player(30, 0) 
+    self.gold = self.player.gold
+
   def battle(self):
-    computer = Computer(1)
-    player = Player(30)
-    while player.health > 0 and computer.health > 0:
-      print('---------------------------')
-      print(f"Player health: {player.health}")
+    gold_dropped = random.randint(1, 10)
+    computer = Computer(1, gold_dropped)
+    
+    while self.player.health > 0 and computer.health > 0:
+      print('\n---------------------------')
+      print(f"Player health: {self.player.health}")
+      print(f"Player gold: {self.player.gold}")
       print(f"Computer health: {computer.health}")
       print('---------------------------\n')
       
-      player.draw_cards()
-      player_card = player.select_card()
+      self.player.draw_cards()
+      player_card = self.player.select_card()
       if not player_card:
         continue     
       computer.draw_cards()
@@ -27,10 +34,12 @@ class Battle:
       damage_diff = abs(player_damage - computer_damage)
       if int(player_damage) > int(computer_damage):
         print('Player wins round!\n')
+        self.player.add_gold(computer.gold)
+        print(f"Player gold: {self.player.gold}")
         computer.take_damage(damage_diff)
       elif computer_damage > player_damage:
         print('Computer wins round!\n')
-        player.take_damage(damage_diff)
+        self.player.take_damage(damage_diff)
       else:
         print('Draw! Neither takes damage!\n')
     print('\n---------------------------')
@@ -40,6 +49,5 @@ class Battle:
       print('\n')
       self.battle()  
     else:
-      exit(0)  
-
-
+      self.gold = self.player.gold 
+      exit(0)
