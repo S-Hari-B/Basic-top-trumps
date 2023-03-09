@@ -5,7 +5,9 @@ class Menu:
     def menu_options(self):
       select = True
       while select:
-        print('Welcome to Basic Top Trumps!\n')
+        print('---------------------------')
+        print('Welcome to Basic Top Trumps!')
+        print('---------------------------\n')
         print('1. New game')
         print('2. Load Game')
         print('3. View Full Card List')
@@ -18,13 +20,12 @@ class Menu:
           select = False
         elif choice == 2:
           print('Not implemented yet')
-          select = False
         elif choice == 3:
           cards = Cards()
           cards.view_full_card_list()
-          select = False
+          print('')
         elif choice == 4:
           select = False
           exit(0)
         else:
-          print('Please enter a valid option')
+          print('Please enter a valid option\n')

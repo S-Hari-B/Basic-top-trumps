@@ -26,6 +26,7 @@ class Cards:
 
   def view_full_card_list(self):
     print("Full Card List:")
+    print('---------------------------')
     with open('cards.csv') as card_list:
       option = 1
       for card in csv.reader(card_list, delimiter=':'):

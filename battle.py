@@ -6,9 +6,9 @@ class Battle:
     computer = Computer(1)
     player = Player(30)
     while player.health > 0 and computer.health > 0:
-      print('\n---------------------------')
+      print('---------------------------')
       print(f"Player health: {player.health}")
-      print(f"Computer health: {computer.health}\n")
+      print(f"Computer health: {computer.health}")
       print('---------------------------\n')
       
       player.draw_cards()
@@ -19,7 +19,7 @@ class Battle:
       computer_card = computer.select_card()
 
       print('\n---------------------------')
-      print(f"\nYou played {player_card[0]} with damage {player_card[1]}")
+      print(f"You played {player_card[0]} with damage {player_card[1]}")
       print(f"Computer played {computer_card[0]} with damage {computer_card[1]}")
       print('---------------------------\n')
       player_damage = int(player_card[1])
@@ -32,7 +32,7 @@ class Battle:
         print('Computer wins round!\n')
         player.take_damage(damage_diff)
       else:
-        print('Draw!')
+        print('Draw! Neither takes damage!\n')
     print('\n---------------------------')
     choice = input("Do you want to play again? (y/n) ")
 
