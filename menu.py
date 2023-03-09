@@ -12,26 +12,30 @@ class Menu:
       print('---------------------------')
       print('Main Menu!')
       print('---------------------------\n')
+      print('---------------------------')
       print('1. New game')
       print('2. Load Game')
       print('3. View Full Card List')
       print('4. Exit Game')
-      choice = int(input('\nPlease select an option: '))
-      print('')
-      if choice == 1:
-        self.battle_menu()
-        select = False
-      elif choice == 2:
-        print('Not implemented yet')
-      elif choice == 3:
-        cards = Cards()
-        cards.view_full_card_list()
+      print('---------------------------')
+      try:
+        choice1 = int(input('\nPlease select an option: '))
         print('')
-      elif choice == 4:
-        select = False
-        exit(0)
-      else:
-        print('Please enter a valid option\n')
+        if choice1 == 1:
+          self.battle_menu()
+          select = False
+        elif choice1 == 2:
+          print('Not implemented yet')
+        elif choice1 == 3:
+          cards = Cards()
+          cards.view_full_card_list()
+          print('')
+        elif choice1 == 4:
+          select = False
+          exit(0)
+      except ValueError:
+          print('\nPlease enter a valid option\n')
+          continue
 
   def battle_menu(self):
     print('---------------------------')
@@ -39,27 +43,31 @@ class Menu:
     print('---------------------------\n')
     option = True
     while option:
+      print('---------------------------')
       print('1. Start Battle!')
       print('2. View Player Stats')
       print('3. View Player Cards')
       print('4. Return to Main Menu')
       print('5. Exit Game')
-      choice = int(input('\nPlease select an option: '))
-      if choice == 1:
-        battle = Battle()
-        battle.battle()
-        option = False
-      if choice == 2:
-        print('Still to add')
-      if choice == 3:
-        print('Still to add')
-      if choice == 4:
-        print('Returning to menu')
-        self.menu_options
-        option = False
-      if choice == 5:
-        print('Exiting Game')
-        exit(0)
-        option = False
-      else:
-        print('Please enter a valid option\n')
+      print('---------------------------')
+      try:
+        choice2 = int(input('\nPlease select an option: '))
+        if choice2 == 1:
+          battle = Battle()
+          battle.battle()
+          option = False
+        if choice2 == 2:
+          print('\nStill to add')
+        if choice2 == 3:
+          print('\nStill to add')
+        if choice2 == 4:
+          print('Returning to menu')
+          self.menu_options()
+          option = False
+        if choice2 == 5:
+          print('Exiting Game')
+          exit(0)
+          option = False
+      except ValueError:
+          print('\nPlease enter a valid option\n')
+          continue
