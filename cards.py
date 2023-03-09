@@ -6,7 +6,11 @@ class Cards:
 
   def __init__(self):
     self.cards = []
+    self.selected_cards = []
     self.generate_cards()
+
+  def __len__(self):
+    return len(self.cards)
 
   def generate_cards(self):
     with open('cards.csv') as card_list:
@@ -22,7 +26,10 @@ class Cards:
       option += 1
 
   def select_card(self, choice):
-    return self.cards[int(choice) - 1]
+    selected_card = self.cards[int(choice) - 1]
+    self.selected_cards.append(selected_card)
+    self.cards.remove(selected_card)
+    return selected_card
 
   def view_full_card_list(self):
     print("Full Card List:")
@@ -32,4 +39,7 @@ class Cards:
       for card in csv.reader(card_list, delimiter=':'):
         print(f"{option}. {card[0]}, Damage: {card[1]}")
         option += 1
-      
+
+  def reset_selected_cards(self):
+    self.cards.extend(self.selected_cards)
+    self.selected_cards = []
